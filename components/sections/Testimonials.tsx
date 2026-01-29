@@ -7,23 +7,23 @@ import { Quote } from "lucide-react";
 const testimonials = [
     {
         quote: "NovaAI transformed our customer service operations. The autonomous agents handle 80% of inquiries with human-like empathy.",
-        author: "Sarah Chen",
-        role: "CTO, FinEdge Global",
+        author: "Sarah",
+        useCase: "Customer Support Automation",
     },
     {
-        quote: "The predictive analytics model predicted market shifts two weeks in advance, saving us over $2M in inventory costs.",
-        author: "James Wilson",
-        role: "Director of Operations, RetailGiant",
+        quote: "The predictive analytics model predicted market shifts two weeks in advance, significantly reducing our inventory costs.",
+        author: "James",
+        useCase: "Predictive Inventory Management",
     },
     {
         quote: "Implementation was seamless. The tailored GenAI solution integrates perfectly with our legacy stack.",
-        author: "Dr. Emily Carter",
-        role: "Head of Innovation, MedTech Inc.",
+        author: "Emily",
+        useCase: "Legacy System Integration",
     },
     {
-        quote: "We've seen a 300% ROI within the first quarter. Antigravity's approach to AI is truly revolutionary.",
-        author: "Michael Chang",
-        role: "CEO, Nexus Dynamics",
+        quote: "We've seen significant ROI within the first quarter. Antigravity's approach to AI is truly revolutionary.",
+        author: "Michael",
+        useCase: "Enterprise AI Transformation",
     },
 ];
 
@@ -61,7 +61,7 @@ export const Testimonials = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-semibold text-foreground">{testimonial.author}</h4>
-                                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                                    <p className="text-sm text-primary">{testimonial.useCase}</p>
                                 </div>
                             </div>
                         </motion.div>

@@ -58,10 +58,10 @@ export const About = () => {
                         <div className="relative z-10 grid grid-cols-2 gap-4">
                             <div className="space-y-4 translate-y-8">
                                 <div className="h-48 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 backdrop-blur-md border border-white/10 p-6 flex items-center justify-center">
-                                    <span className="text-4xl font-bold text-foreground">10k+</span>
+                                    <span className="text-4xl font-bold text-foreground">50+</span>
                                 </div>
                                 <div className="h-64 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 backdrop-blur-md border border-white/10 p-6 flex flex-col justify-end">
-                                    <span className="text-lg font-medium text-muted-foreground">Models Deployed</span>
+                                    <span className="text-lg font-medium text-muted-foreground">Projects Delivered</span>
                                 </div>
                             </div>
                             <div className="space-y-4">

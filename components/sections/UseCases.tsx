@@ -2,28 +2,27 @@
 
 import { Container } from "@/components/ui/container";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const projects = [
     {
         category: "FinTech",
         title: "Autonomous Fraud Detection",
-        description: "Deployed a swarm of agents processing 1M+ transactions per second with 99.9% accuracy.",
-        stats: "Saved $50M+ annually",
+        description: "Deployed agentic AI processing real-time transactions with 99.9% accuracy.",
+        stats: "85% Fraud Reduction",
         gradient: "from-emerald-900 to-green-900",
     },
     {
         category: "Healthcare",
         title: "Diagnostic Assistant",
         description: "GenAI model assisting radiologists in early cancer detection from MRI scans.",
-        stats: "30% faster diagnosis",
+        stats: "30% Faster Diagnosis",
         gradient: "from-blue-900 to-indigo-900",
     },
     {
         category: "E-Commerce",
         title: "Hyper-Personalized Shopping",
-        description: "Real-time preference learning engine for a global retail giant.",
-        stats: "45% increase in conversion",
+        description: "Real-time preference learning engine for personalized product recommendations.",
+        stats: "45% Conversion Lift",
         gradient: "from-purple-900 to-pink-900",
     },
 ];
