@@ -9,8 +9,9 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "NovaAI - GenAI Solutions",
-  description: "Advanced Agentic AI Solutions for the Future",
+  title: "dev.nova — Product & idea development",
+  description:
+    "A NovaShield child studio for development products, MVPs, and idea building — from discovery to shipped software.",
 };
 
 export default function RootLayout({
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-[#0a0e27] font-sans antialiased text-white",
           outfit.variable
         )}
       >

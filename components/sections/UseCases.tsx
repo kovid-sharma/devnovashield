@@ -3,88 +3,62 @@
 import { Container } from "@/components/ui/container";
 import { motion } from "framer-motion";
 
-const projects = [
+const useCases = [
     {
-        category: "FinTech",
-        title: "Autonomous Fraud Detection",
-        description: "Deployed agentic AI processing real-time transactions with 99.9% accuracy.",
-        stats: "85% Fraud Reduction",
-        gradient: "from-emerald-900 to-green-900",
+        title: "Validate the idea",
+        description: "Rapid prototypes and user tests before you over-invest in the wrong build.",
+        icon: "💡",
     },
     {
-        category: "Healthcare",
-        title: "Diagnostic Assistant",
-        description: "GenAI model assisting radiologists in early cancer detection from MRI scans.",
-        stats: "30% Faster Diagnosis",
-        gradient: "from-blue-900 to-indigo-900",
+        title: "Ship the MVP",
+        description: "A tight scope, weekly demos, and a release your early adopters can use.",
+        icon: "🚀",
     },
     {
-        category: "E-Commerce",
-        title: "Hyper-Personalized Shopping",
-        description: "Real-time preference learning engine for personalized product recommendations.",
-        stats: "45% Conversion Lift",
-        gradient: "from-purple-900 to-pink-900",
+        title: "Scale the platform",
+        description: "Hardening, observability, and integration patterns as usage grows.",
+        icon: "📈",
+    },
+    {
+        title: "Hand off cleanly",
+        description: "Documentation, repos, and DX so your internal team owns the next chapter.",
+        icon: "🤝",
     },
 ];
 
 export const UseCases = () => {
     return (
-        <section id="use-cases" className="py-24 bg-black relative">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-background to-background" />
+        <section id="use-cases" className="py-20 md:py-24 bg-[#080c1f]/90">
+            <Container className="max-w-[1400px]">
+                <motion.div
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center max-w-3xl mx-auto mb-14"
+                >
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-violet-400/90">
+                        Solutions
+                    </span>
+                    <h2 className="mt-3 text-3xl md:text-4xl font-bold text-white">Use cases</h2>
+                    <p className="mt-3 text-[#a8b2d1] text-base md:text-lg">
+                        How teams use dev.nova across the product lifecycle.
+                    </p>
+                </motion.div>
 
-            <Container className="relative z-10">
-                <div className="mb-16">
-                    <motion.span
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-primary font-medium tracking-wide uppercase text-sm"
-                    >
-                        Proven Results
-                    </motion.span>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-3xl md:text-5xl font-bold mt-2"
-                    >
-                        Use Cases Solved
-                    </motion.h2>
-                </div>
-
-                <div className="space-y-8">
-                    {projects.map((project, index) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    {useCases.map((uc, index) => (
                         <motion.div
-                            key={project.title}
+                            key={uc.title}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/50"
+                            transition={{ delay: index * 0.07 }}
+                            className="relative overflow-hidden rounded-2xl border border-white/[0.07] bg-[#141b2d] p-6 hover:border-violet-500/30 transition-colors group"
                         >
-                            <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity`} />
-                            <div className="relative p-8 md:p-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                                <div className="space-y-4 max-w-2xl">
-                                    <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-xs font-medium text-white/80 border border-white/10">
-                                        {project.category}
-                                    </span>
-                                    <h3 className="text-2xl md:text-4xl font-bold text-white group-hover:text-primary transition-colors">
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-zinc-400 text-lg">
-                                        {project.description}
-                                    </p>
-                                </div>
-                                <div className="flex-shrink-0">
-                                    <div className="text-right">
-                                        <p className="text-sm text-zinc-500 uppercase tracking-widest font-semibold">Impact</p>
-                                        <p className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
-                                            {project.stats}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            <div className="text-3xl mb-4">{uc.icon}</div>
+                            <h4 className="text-lg font-bold text-white">{uc.title}</h4>
+                            <p className="mt-2 text-sm text-[#a8b2d1] leading-relaxed">{uc.description}</p>
+                            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-br from-violet-500/[0.06] to-transparent" />
                         </motion.div>
                     ))}
                 </div>

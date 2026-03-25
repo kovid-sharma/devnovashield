@@ -1,69 +1,123 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { Sparkles, Github, Twitter, Linkedin } from "lucide-react";
+import { Code2 } from "lucide-react";
+
+const footerLinks = {
+    services: [
+        { name: "Discovery & PRDs", href: "#summary" },
+        { name: "MVP build", href: "#summary" },
+        { name: "Platform & APIs", href: "#summary" },
+        { name: "Developer experience", href: "#summary" },
+    ],
+    company: [
+        { name: "Live dashboard", href: "#dashboard" },
+        { name: "Use cases", href: "#use-cases" },
+        { name: "Client stories", href: "#testimonials" },
+        { name: "Why dev.nova", href: "#why-choose" },
+        { name: "Contact", href: "#contact" },
+    ],
+    legal: [
+        { name: "Privacy Policy", href: "#" },
+        { name: "Terms of Service", href: "#" },
+    ],
+};
 
 export const Footer = () => {
+    const year = new Date().getFullYear();
+
     return (
-        <footer className="bg-muted/30 border-t border-border mt-auto">
-            <Container className="py-12 md:py-16">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div className="space-y-4">
-                        <Link href="/" className="flex items-center space-x-2">
-                            <Sparkles className="w-6 h-6 text-primary" />
-                            <span className="text-xl font-bold">NovaAI</span>
+        <footer className="mt-auto border-t border-violet-500/15 bg-[#060913]">
+            <Container className="max-w-[1400px] py-14 md:py-16">
+                <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+                    <div className="space-y-4 lg:col-span-1">
+                        <Link href="/" className="flex items-center gap-3">
+                            <Code2 className="h-7 w-7 text-violet-300" aria-hidden />
+                            <span className="text-xl font-extrabold text-white">
+                                dev<span className="text-violet-300">.nova</span>
+                            </span>
                         </Link>
-                        <p className="text-sm text-muted-foreground w-full md:w-2/3">
-                            Empowering businesses with crystal clear GenAI solutions.
-                            The future of automation is here.
+                        <p className="max-w-sm text-sm leading-relaxed text-[#a8b2d1]">
+                            A NovaShield child application focused on development products and idea building —
+                            from first sketch to production-ready software.
                         </p>
-                    </div>
-
-                    <div>
-                        <h3 className="font-semibold mb-4 text-foreground">Services</h3>
-                        <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li><Link href="#" className="hover:text-primary transition-colors">AI Consulting</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">Automation</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">Data Analytics</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">Custom Models</Link></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 className="font-semibold mb-4 text-foreground">Company</h3>
-                        <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li><Link href="#about" className="hover:text-primary transition-colors">About Us</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">Careers</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">Blog</Link></li>
-                            <li><Link href="#contact" className="hover:text-primary transition-colors">Contact</Link></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 className="font-semibold mb-4 text-foreground">Connect</h3>
-                        <div className="flex space-x-4">
-                            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                                <Twitter className="w-5 h-5" />
-                                <span className="sr-only">Twitter</span>
-                            </Link>
-                            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                                <Github className="w-5 h-5" />
-                                <span className="sr-only">GitHub</span>
-                            </Link>
-                            <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                                <Linkedin className="w-5 h-5" />
-                                <span className="sr-only">LinkedIn</span>
-                            </Link>
+                        <div className="space-y-2 text-sm text-[#a8b2d1]">
+                            <div className="flex items-center gap-2">
+                                <span className="text-violet-400">✉</span>
+                                <a
+                                    href="mailto:contact@novashield.in"
+                                    className="hover:text-violet-200 transition-colors"
+                                >
+                                    contact@novashield.in
+                                </a>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-violet-400">☎</span>
+                                <a href="tel:+918308628739" className="hover:text-violet-200 transition-colors">
+                                    +91 8308628739
+                                </a>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-violet-400">⌖</span>
+                                <span>Wakad, Pune, India</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-sm text-muted-foreground">
-                        © {new Date().getFullYear()} NovaAI. All rights reserved. Antigravity Intro.
-                    </p>
-                    <div className="flex gap-4 text-sm text-muted-foreground">
-                        <Link href="#" className="hover:text-foreground">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-foreground">Terms of Service</Link>
+
+                    <div>
+                        <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">Services</h4>
+                        <ul className="space-y-2 text-sm text-[#a8b2d1]">
+                            {footerLinks.services.map((l) => (
+                                <li key={l.name}>
+                                    <Link href={l.href} className="hover:text-violet-200 transition-colors">
+                                        {l.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
+
+                    <div>
+                        <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">Explore</h4>
+                        <ul className="space-y-2 text-sm text-[#a8b2d1]">
+                            {footerLinks.company.map((l) => (
+                                <li key={l.name}>
+                                    <Link href={l.href} className="hover:text-violet-200 transition-colors">
+                                        {l.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">Legal</h4>
+                        <ul className="space-y-2 text-sm text-[#a8b2d1]">
+                            {footerLinks.legal.map((l) => (
+                                <li key={l.name}>
+                                    <Link href={l.href} className="hover:text-violet-200 transition-colors">
+                                        {l.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                        <p className="mt-6 text-xs text-[#6b7280] leading-relaxed">
+                            Parent:{" "}
+                            <a
+                                href="https://novashield.in"
+                                className="text-violet-400 hover:text-violet-300 underline-offset-2 hover:underline"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                NovaShield Cybertech LLP
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-violet-500/10 pt-8 md:flex-row">
+                    <p className="text-sm text-[#6b7280]">
+                        © {year} dev.nova · NovaShield Cybertech LLP. All rights reserved.
+                    </p>
                 </div>
             </Container>
         </footer>

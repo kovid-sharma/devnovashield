@@ -1,96 +1,106 @@
 "use client";
 
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { motion } from "framer-motion";
-import { Brain, MessageSquare, Monitor, BarChart, Shield, Zap } from "lucide-react";
 
 const services = [
     {
-        title: "Generative AI Agents",
-        description: "Autonomous agents that handle complex customer interactions and workflows.",
-        icon: Brain,
-        color: "from-blue-500 to-cyan-500",
+        id: "discovery",
+        title: "Product discovery & PRDs",
+        description:
+            "Workshops, user journeys, and crisp requirements so engineering starts with clarity.",
+        tag: "Strategy",
+        icon: "🧭",
     },
     {
-        title: "Natural Language Processing",
-        description: "Advanced semantic understanding for document analysis and sentiment tracking.",
-        icon: MessageSquare,
-        color: "from-purple-500 to-pink-500",
+        id: "mvp",
+        title: "MVP design & build",
+        description:
+            "End-to-end delivery — UX, APIs, and deployable software you can put in users’ hands.",
+        tag: "Build",
+        icon: "⚙️",
     },
     {
-        title: "Computer Vision",
-        description: "Real-time image and video analysis for quality control and security.",
-        icon: Monitor,
-        color: "from-green-500 to-emerald-500",
+        id: "platform",
+        title: "Platform & integrations",
+        description:
+            "Scalable foundations, third-party APIs, and developer tooling that stays maintainable.",
+        tag: "Systems",
+        icon: "🔌",
     },
     {
-        title: "Predictive Analytics",
-        description: "Data-driven insights to forecast trends and optimize decision making.",
-        icon: BarChart,
-        color: "from-orange-500 to-red-500",
-    },
-    {
-        title: "AI Security & Compliance",
-        description: "Ensuring your AI implementations are secure, ethical, and compliant.",
-        icon: Shield,
-        color: "from-indigo-500 to-blue-500",
-    },
-    {
-        title: "Process Automation",
-        description: "End-to-end automation of manual processes with 95% efficiency improvement.",
-        icon: Zap,
-        color: "from-yellow-500 to-orange-500",
+        id: "dx",
+        title: "Developer experience",
+        description:
+            "Docs, CI/CD, previews, and standards so your team ships confidently after handoff.",
+        tag: "Enablement",
+        icon: "📦",
     },
 ];
 
 export const Services = () => {
     return (
-        <section id="services" className="py-24 bg-muted/20 relative overflow-hidden">
-            <Container>
-                <div className="text-center mb-16 space-y-4">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70"
-                    >
-                        Core Services
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-muted-foreground max-w-2xl mx-auto text-lg"
-                    >
-                        Comprehensive AI solutions tailored for enterprise scalability and performance.
-                    </motion.p>
-                </div>
+        <section id="summary" className="py-20 md:py-24 border-t border-[var(--ns-border)]">
+            <Container className="max-w-[1400px]">
+                <motion.div
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center max-w-3xl mx-auto mb-14"
+                >
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-violet-400/90">
+                        What we offer
+                    </span>
+                    <h2 className="mt-3 text-3xl md:text-4xl font-bold text-white">Core services</h2>
+                    <p className="mt-3 text-[#a8b2d1] text-base md:text-lg">
+                        Focused development offerings to take you from idea validation to production-ready
+                        product.
+                    </p>
+                </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                     {services.map((service, index) => (
-                        <motion.div
-                            key={service.title}
+                        <motion.article
+                            key={service.id}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            whileHover={{ y: -5 }}
-                            className="group relative p-8 rounded-2xl bg-background border border-border hover:border-primary/50 transition-all shadow-sm hover:shadow-xl"
+                            transition={{ delay: index * 0.08 }}
+                            className="group relative rounded-2xl border border-white/[0.08] bg-[#141b2d] p-8 hover:border-violet-500/35 transition-colors shadow-[0_4px_24px_rgba(0,0,0,0.35)]"
                         >
-                            <div
-                                className={`w-12 h-12 rounded-lg bg-gradient-to-br ${service.color} p-2.5 mb-6 text-white shadow-lg`}
-                            >
-                                <service.icon className="w-full h-full" />
+                            <div className="flex items-start gap-4">
+                                <div className="relative shrink-0 w-14 h-14 rounded-xl bg-violet-500/15 flex items-center justify-center text-2xl border border-violet-500/20">
+                                    <span>{service.icon}</span>
+                                </div>
+                                <div className="min-w-0 flex-1">
+                                    <span className="text-xs font-semibold uppercase tracking-wider text-violet-300/90">
+                                        {service.tag}
+                                    </span>
+                                    <h3 className="mt-1 text-xl font-bold text-white group-hover:text-violet-200 transition-colors">
+                                        {service.title}
+                                    </h3>
+                                    <p className="mt-2 text-[#a8b2d1] text-sm leading-relaxed">
+                                        {service.description}
+                                    </p>
+                                </div>
                             </div>
-                            <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                                {service.title}
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                                {service.description}
-                            </p>
-                            <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-100 transition-opacity rounded-b-2xl`} />
-                        </motion.div>
+                            <Link
+                                href="#contact"
+                                className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-violet-300 hover:text-fuchsia-300 transition-colors"
+                            >
+                                Start a conversation
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+                                    <path
+                                        d="M6 12L10 8L6 4"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            </Link>
+                        </motion.article>
                     ))}
                 </div>
             </Container>
