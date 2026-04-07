@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { AiFirstApproach } from "@/components/sections/AiFirstApproach";
 import { Services } from "@/components/sections/Services";
+import { Portfolio } from "@/components/sections/Portfolio";
 import { DevPipelineDashboard } from "@/components/sections/DevPipelineDashboard";
 import { Stats } from "@/components/sections/Stats";
 import { UseCases } from "@/components/sections/UseCases";
@@ -19,6 +20,7 @@ export default function Home() {
                 <Hero />
                 <AiFirstApproach />
                 <Services />
+                <Portfolio />
                 <DevPipelineDashboard />
                 <Stats />
                 <UseCases />
